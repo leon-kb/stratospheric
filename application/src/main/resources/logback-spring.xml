@@ -3,11 +3,20 @@
   <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
   <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
 
-  <root level="INFO">
-    <appender-ref ref="CONSOLE"/>
-  </root>
+  <appender name="JSON" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="de.siegmar.logbackawslogsjsonencoder.AwsJsonLogEncoder"/>
+  </appender>
 
-  <logger name="org.springframework.messaging.simp.stomp.StompBrokerRelayMessageHandler" level="INFO"/>
-  <logger name="org.springframework.web.SimpLogging" level="INFO"/>
-  <logger name="org.springframework.web.socket.config.WebSocketMessageBrokerStats" level="WARN"/>
+  <springProfile name="dev">
+    <root level="INFO">
+      <appender-ref ref="CONSOLE"/>
+    </root>
+  </springProfile>
+
+  <springProfile name="aws">
+    <root level="INFO">
+      <appender-ref ref="JSON"/>
+    </root>
+    <logger name="org.springframework.web.socket.config.WebSocketMessageBrokerStats" level="WARN"/>
+  </springProfile>
 </configuration>
