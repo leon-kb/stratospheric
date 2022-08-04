@@ -6,15 +6,15 @@ plugins {
 
 group = 'dev.stratospheric'
 version = 'final'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 repositories {
   mavenCentral()
 }
 
 ext {
-  set('awsSpringVersion', '2.3.3')
-  set('testcontainersVersion', '1.16.3')
+  set('awsSpringVersion', '2.4.2')
+  set('testcontainersVersion', '1.17.3')
 }
 
 dependencies {

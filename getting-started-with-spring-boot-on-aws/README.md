@@ -29,7 +29,7 @@ aws_access_key_id=XYZ
 aws_secret_access_key=XYZ
 ```
 
-2. Ensure you have JDK 11 installed: `java -version`
+2. Ensure you have JDK 17 installed: `java -version`
 3. Create the required infrastructure for the application:
 ```
 cd cloudformation
@@ -66,7 +66,6 @@ docker run -p 8080:8080 -e AWS_REGION=eu-central-1 -e AWS_ACCESS_KEY_ID=XYZ -e A
 ```
 
 9. Make sure to clean up all AWS resources afterwards. Empty all files within your S3 bucket and then delete the CloudFormation stack inside the AWS console.
-
 
 ## Further resources
 
